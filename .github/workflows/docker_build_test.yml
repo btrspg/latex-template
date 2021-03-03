@@ -1,0 +1,23 @@
+name: testing building LaTeX documents
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.tex'
+
+jobs:
+
+  pdf-build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: docker image build
+        run: |
+          docker build . -t latexbuild
+      - name: latex to pdf
+        run: |
+          docker run --rm -v `pwd`:/workspace/ latexbuild bash -c 'pdflatex main.tex'
+      - name: Check if the pdf exists
+        run: |
+          [[ -f main.pdf ]] || then echo 'No file'
