@@ -1,4 +1,4 @@
-name: testing building LaTeX documents
+name: testing the docker image work
 on:
   workflow_dispatch:
   push:
