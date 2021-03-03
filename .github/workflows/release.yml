@@ -1,9 +1,8 @@
-name: testing building LaTeX documents
+name: Release template
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '**.tex'
+  release:
+
 
 jobs:
 
@@ -17,3 +16,8 @@ jobs:
         with:
           working_directory: ./
           root_file: ./main.tex
+      - name: Uploads release
+        uses: actions/upload-artifact@v2
+        with:
+          name: template
+          path: ./main.pdf
