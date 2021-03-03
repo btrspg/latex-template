@@ -20,4 +20,4 @@ jobs:
           docker run --rm -v `pwd`:/workspace/ latexbuild bash -c 'pdflatex main.tex'
       - name: Check if the pdf exists
         run: |
-          [[ -f main.pdf ]] || then echo 'No file'
+          [[ -f main.pdf ]] || echo 'No file'
