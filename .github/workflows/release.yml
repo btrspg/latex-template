@@ -15,10 +15,14 @@ jobs:
         uses: xu-cheng/latex-action@master
         with:
           working_directory: ./
-          root_file: ./main.tex
+          root_file: |
+            ./main.tex
+            ./thesis.tex
           latexmk_use_xelatex: true
       - name: Uploads release
         uses: actions/upload-artifact@v2
         with:
           name: template
-          path: ./main.pdf
+          path: |
+            ./main.pdf
+            ./thesis.pdf

@@ -2,8 +2,7 @@ name: testing building LaTeX documents
 on:
   workflow_dispatch:
   push:
-    paths:
-      - '**.tex'
+
 
 jobs:
 
@@ -16,5 +15,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: ./
-          root_file: ./main.tex
+          root_file: |
+            ./main.tex
+            ./thesis.tex
           latexmk_use_xelatex: true
