@@ -21,3 +21,4 @@ jobs:
         with:
           name: template
           path: ./main.pdf
+          latexmk_use_xelatex: true
