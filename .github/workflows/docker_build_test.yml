@@ -17,7 +17,7 @@ jobs:
           docker build . -t latexbuild
       - name: latex to pdf
         run: |
-          docker run --rm -v `pwd`:/workspace/ latexbuild bash -c 'pdflatex main.tex'
+          docker run --rm -v `pwd`:/workspace/ latexbuild bash -c 'latexmk main.tex -xelatex -synctex=1'
       - name: Check if the pdf exists
         run: |
           [[ -f main.pdf ]] || echo 'No file'
