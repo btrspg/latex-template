@@ -16,9 +16,9 @@ jobs:
         with:
           working_directory: ./
           root_file: ./main.tex
+          latexmk_use_xelatex: true
       - name: Uploads release
         uses: actions/upload-artifact@v2
         with:
           name: template
           path: ./main.pdf
-          latexmk_use_xelatex: true
